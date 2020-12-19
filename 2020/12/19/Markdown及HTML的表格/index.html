@@ -1,154 +1,37 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Markdown及HTML的表格 | SoSo</title>
-  <meta name="description" content="JustToDo" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="MobileOptimized" content="320" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
-
-  <meta name="generator" content="SoSo">
-
-  
-  
-  
-
-  
-</head>
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
 
-<body class="post-template">
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-  <header class="site-head"  style="background-image: url(//s1.ax1x.com/2020/11/01/Bdvp1U.jpg)" >
-    <div class="vertical">
-        <div class="site-head-content inner">
-             <a class="blog-logo" href="/"><img src="//s1.ax1x.com/2020/11/06/BfqHTx.jpg" alt="Blog Logo"/></a> 
-            <h1 class="blog-title">SoSo</h1>
-            <h2 class="blog-description">JustToDo</h2>
-        </div>
+{% block page_class %}page-post-detail{% endblock %}
+
+
+{% block content %}
+
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
+
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
-</header>
-  
-
-<main class="content" role="main">
-  <article class="post">
-    <span class="post-meta">
-      <time datetime="2020-12-19T09:04:37.000Z" itemprop="datePublished">
-          2020-12-19
-      </time>
-    
-    
-    | 
-    <a href='/tags/Markdown/'>Markdown</a>
-    
-    
-</span>
-    <h1 class="post-title">Markdown及HTML的表格</h1>
-    <section class="post-content">
-      <h1 id="MarkDown-表格语法创建表格"><a href="#MarkDown-表格语法创建表格" class="headerlink" title="MarkDown 表格语法创建表格"></a>MarkDown 表格语法创建表格</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| col1 | col2 | col3 |</span><br><span class="line">| --- | --- | --- |</span><br><span class="line">| 1 | 1 | 1 |</span><br><span class="line">| 2 | 2 | 2 |</span><br></pre></td></tr></table></figure>
-<p>如上，即可创建出一个三行三列的表格，增删依照葫芦画瓢即可。<br>| col1 | col2 | col3 |<br>| — | — | — |<br>| 1 | 1 | 1 |<br>| 2 | 2 | 2 |</p>
-<h1 id="HTML代码表格"><a href="#HTML代码表格" class="headerlink" title="HTML代码表格"></a>HTML代码表格</h1><h2 id="行合并"><a href="#行合并" class="headerlink" title="行合并"></a>行合并</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td rowspan&#x3D;&quot;7&quot;&gt; 合并多行成一列：&lt;br &#x2F;&gt;</span><br><span class="line">            使用rowspan&#x3D;&quot;n&quot; &lt;br &#x2F;&gt;</span><br><span class="line">            跨 n 行合并&lt;br &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;文件标识：&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;内容&lt;&#x2F;td&gt;</span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;第一行：&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;该写什么呢？&lt;&#x2F;td&gt;</span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;第二行：&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;随便写吧！&lt;&#x2F;td&gt;</span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;第三行：&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;OK了！&lt;&#x2F;td&gt;</span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
-<p>合并多行成一列：<br>使用rowspan=”n”<br>跨 n 行合并</p>
-<table>
-    <tr>
-        <td rowspan="7"> 合并多行成一列：<br />
-            使用rowspan="n" <br />
-            跨 n 行合并<br />
-        </td>
-        <td>文件标识：</td>
-        <td>内容</td>
-    </tr>
-    <tr>
-        <td>第一行：</td>
-        <td>该写什么呢？</td>
-    </tr>
-    <tr>
-        <td>第二行：</td>
-        <td>随便写吧！</td>
-    </tr>
-    <tr>
-        <td>第三行：</td>
-        <td>OK了！</td>
-    </tr>
-</table>
-## 列合并
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td bgcolor&#x3D;#FF69B4&gt;第一列&lt;&#x2F;td&gt; </span><br><span class="line">        &lt;td&gt;第二列&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;第三列&lt;&#x2F;td&gt; </span><br><span class="line">   &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td colspan&#x3D;&quot;2&quot;bgcolor&#x3D;#7B68EE&gt;合并第1，2列&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;第2行，第3列&lt;&#x2F;td    </span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td colspan&#x3D;&quot;2&quot; bgcolor&#x3D;#ADFF2F&gt;合并第1，2列&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;第3行，第3列&lt;&#x2F;td    </span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
-<table>
-    <tr>
-        <td>第一列</td> 
-        <td>第二列</td>
-        <td>第三列</td> 
-   </tr>
-    <tr>
-        <td colspan="2">合并第1，2列</td>
-        <td>第2行，第3列</td    
-    </tr>
-    <tr>
-        <td colspan="2">合并第1，2列</td>
-        <td>第3行，第3列</td    
-    </tr>
-</table>
-End Thanks！
-    </section>
-    <footer class="post-footer">
-      <section class="author">
-    <h4>Jasondi</h4>
-    <p>https://jasondi.xyz</p>
-</section>
-      <section class="share">
-    <h4>Share this post</h4>
-    <a class="icon-twitter" target="_blank" rel="noopener" href="http://twitter.com/share?url=https://hexo.jasondi.xyz/2020/12/19/Markdown及HTML的表格/"
-       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-        <span class="hidden">Twitter</span>
-    </a>
-    <a class="icon-facebook" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.jasondi.xyz/2020/12/19/Markdown及HTML的表格/"
-       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-        <span class="hidden">Facebook</span>
-    </a>
-    <a class="icon-google-plus" target="_blank" rel="noopener" href="https://plus.google.com/share?url=https://hexo.jasondi.xyz/2020/12/19/Markdown及HTML的表格/"
-       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-        <span class="hidden">Google+</span>
-    </a>
-</section>
-    </footer>
-  </article>
-  <nav class="pagination" role="pagination">
-    
-    <span class="page-number">•</span>
-    
-</nav>
-  <div id="comment" class="comments-area">
-    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
-
-    
-</div>
-</main>
-
-
-  
-<footer class="site-footer">
-  
-  <div class="inner">
-     <section class="copyright">All content copyright <a href="/">SoSo</a> &copy; 2014 &bull; All rights reserved.</section>
-     <section class="poweredby">Proudly published with <a class="icon-ghost" target="_blank" rel="noopener" href="http://zespia.tw/hexo/">Hexo</a></section>
   </div>
-</footer>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+{% endblock %}
 
-<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
-<script type="text/javascript" src="/js/index.js"></script>
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
-
-
-
-
-
-</body>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}
