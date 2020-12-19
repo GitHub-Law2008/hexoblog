@@ -54,7 +54,7 @@
       <h1 id="MarkDown-表格语法创建表格"><a href="#MarkDown-表格语法创建表格" class="headerlink" title="MarkDown 表格语法创建表格"></a>MarkDown 表格语法创建表格</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| col1 | col2 | col3 |</span><br><span class="line">| --- | --- | --- |</span><br><span class="line">| 1 | 1 | 1 |</span><br><span class="line">| 2 | 2 | 2 |</span><br></pre></td></tr></table></figure>
 <p>如上，即可创建出一个三行三列的表格，增删依照葫芦画瓢即可。<br>| col1 | col2 | col3 |<br>| — | — | — |<br>| 1 | 1 | 1 |<br>| 2 | 2 | 2 |</p>
 <h1 id="HTML代码表格"><a href="#HTML代码表格" class="headerlink" title="HTML代码表格"></a>HTML代码表格</h1><h2 id="行合并"><a href="#行合并" class="headerlink" title="行合并"></a>行合并</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td rowspan&#x3D;&quot;7&quot;&gt; 合并多行成一列：&lt;br &#x2F;&gt;</span><br><span class="line">            使用rowspan&#x3D;&quot;n&quot; &lt;br &#x2F;&gt;</span><br><span class="line">            跨 n 行合并&lt;br &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;文件标识：&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;内容&lt;&#x2F;td&gt;</span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;第一行：&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;该写什么呢？&lt;&#x2F;td&gt;</span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;第二行：&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;随便写吧！&lt;&#x2F;td&gt;</span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;第三行：&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;OK了！&lt;&#x2F;td&gt;</span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
-<p>合并多行成一列：<br>使用rowspan=”n”<br>跨 n 行合并<br>!!!</p>
+<p>合并多行成一列：<br>使用rowspan=”n”<br>跨 n 行合并</p>
 <table>
     <tr>
         <td rowspan="7"> 合并多行成一列：<br />
@@ -77,10 +77,8 @@
         <td>OK了！</td>
     </tr>
 </table>
-!!!
 ## 列合并
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td bgcolor&#x3D;#FF69B4&gt;第一列&lt;&#x2F;td&gt; </span><br><span class="line">        &lt;td&gt;第二列&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;第三列&lt;&#x2F;td&gt; </span><br><span class="line">   &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td colspan&#x3D;&quot;2&quot;bgcolor&#x3D;#7B68EE&gt;合并第1，2列&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;第2行，第3列&lt;&#x2F;td    </span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td colspan&#x3D;&quot;2&quot; bgcolor&#x3D;#ADFF2F&gt;合并第1，2列&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;td&gt;第3行，第3列&lt;&#x2F;td    </span><br><span class="line">    &lt;&#x2F;tr&gt;</span><br><span class="line">&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
-!!!
 <table>
     <tr>
         <td>第一列</td> 
@@ -96,7 +94,6 @@
         <td>第3行，第3列</td    
     </tr>
 </table>
-!!!
 End Thanks！
     </section>
     <footer class="post-footer">
